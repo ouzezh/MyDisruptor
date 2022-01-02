@@ -10,6 +10,12 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.lmax:disruptor:3.4.4'
+    implementation 'ch.qos.logback:logback-classic:1.2.10'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
