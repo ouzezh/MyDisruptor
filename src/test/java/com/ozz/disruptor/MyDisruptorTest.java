@@ -21,9 +21,13 @@ class MyDisruptorTest {
         // 创建队列
         Disruptor<MyEvent> disruptor = new Disruptor<>(MyEvent::new, ringBufferSize, threadFactory, producerType, waitStrategy);
 
-        // 消费队列
-        disruptor.handleEventsWith(new MyEventHandler(), new MyEventHandler()) // 启动两个线程，重复消费
+        // 消费者（每个消费者都是独立线程）
+        MyEventHandler myEventHandler = new MyEventHandler();
+        disruptor.handleEventsWith(myEventHandler, myEventHandler) // 启动两个线程，重复消费
                 .thenHandleEventsWithWorkerPool(new MyWorkHandler(), new MyWorkHandler());// 启动两个线程，唯一消费
+
+        // 消费者 异常处理
+        disruptor.handleExceptionsFor(myEventHandler).with(new MyErrorEventHandler());
 
         // 启动队列
         disruptor.start();
