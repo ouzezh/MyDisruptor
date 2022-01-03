@@ -44,7 +44,7 @@ class MyDisruptorTest {
         publish3(ringBuffer, et, 5L);
         publish3(ringBuffer, et, 6L);
 
-        Assertions.assertNotNull(disruptor.getCursor() > 0);
+        Assertions.assertTrue(disruptor.getCursor() > 0);
         disruptor.shutdown();
     }
 
