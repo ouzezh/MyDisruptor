@@ -13,9 +13,6 @@ public class MyEventHandler implements EventHandler<MyEvent> {
      */
     @Override
     public void onEvent(MyEvent event, long sequence, boolean endOfBatch) {
-        if(true) {
-            throw new RuntimeException("xxx");
-        }
         log.info(String.format("event: %s, sequence: %s, endOfBatch: %s", event.getData(), sequence, endOfBatch));
     }
 }
