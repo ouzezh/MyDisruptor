@@ -13,6 +13,5 @@
         <appender-ref ref="console" />
     </root>
 
-    <logger name="com.ozz" level="DEBUG">
-    </logger>
+    <logger name="com.ozz" level="DEBUG"></logger>
 </configuration>
