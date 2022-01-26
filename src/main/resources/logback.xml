@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="false" scanPeriod="1800 seconds" debug="false">
     <property name="log.pattern.console"
-              value="%yellow(%d{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %blue(%thread) %blue(%file:%line) %cyan(%logger{10}) - %green(%X{traceId}) %msg%n"/>
+              value="%yellow(%d{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %blue(%thread) %green(%file:%line) %cyan(%logger{10}) - %green(%X{traceId}) %msg%n"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
