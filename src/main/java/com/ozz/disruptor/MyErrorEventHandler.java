@@ -1,8 +1,8 @@
 package com.ozz.disruptor;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
 import com.lmax.disruptor.ExceptionHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.ReflectionUtils;
 
 @Slf4j
 public class MyErrorEventHandler implements ExceptionHandler<MyEvent> {
@@ -13,11 +13,11 @@ public class MyErrorEventHandler implements ExceptionHandler<MyEvent> {
 
     @Override
     public void handleOnStartException(Throwable ex) {
-        ReflectionUtils.rethrowRuntimeException(ex);
+        ExceptionUtil.wrapRuntime(ex);
     }
 
     @Override
     public void handleOnShutdownException(Throwable ex) {
-        ReflectionUtils.rethrowRuntimeException(ex);
+        ExceptionUtil.wrapRuntime(ex);
     }
 }
