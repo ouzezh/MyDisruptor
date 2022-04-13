@@ -13,11 +13,11 @@ public class MyErrorEventHandler implements ExceptionHandler<MyEvent> {
 
     @Override
     public void handleOnStartException(Throwable ex) {
-        ExceptionUtil.wrapRuntime(ex);
+        ExceptionUtil.wrapAndThrow(ex);
     }
 
     @Override
     public void handleOnShutdownException(Throwable ex) {
-        ExceptionUtil.wrapRuntime(ex);
+        ExceptionUtil.wrapAndThrow(ex);
     }
 }
