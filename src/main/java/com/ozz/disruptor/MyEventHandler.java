@@ -1,9 +1,8 @@
 package com.ozz.disruptor;
 
+import cn.hutool.log.StaticLog;
 import com.lmax.disruptor.EventHandler;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class MyEventHandler implements EventHandler<MyEvent> {
     /**
      * 消息处理，多个Event订阅会重复消费数据
@@ -13,6 +12,6 @@ public class MyEventHandler implements EventHandler<MyEvent> {
      */
     @Override
     public void onEvent(MyEvent event, long sequence, boolean endOfBatch) {
-        log.info(String.format("event: %s, sequence: %s, endOfBatch: %s", event.getData(), sequence, endOfBatch));
+        StaticLog.info(String.format("event: %s, sequence: %s, endOfBatch: %s", event.getData(), sequence, endOfBatch));
     }
 }
